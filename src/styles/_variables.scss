@@ -26,4 +26,8 @@
   --button-width: 176px;
 
   --transition-duration: 0.3s;
+
+  @media (max-width: 1400px) {
+    --container-padding-x: 20px;
+  }
 }

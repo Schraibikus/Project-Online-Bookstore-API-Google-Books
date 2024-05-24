@@ -20,3 +20,19 @@
     right: -21px;
   }
 }
+
+@media (max-width: 1300px) {
+  .banner .promo-01 {
+    right: -12px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .banner {
+    padding-bottom: 30px;
+  }
+  .banner .promo-01,
+  .banner .promo-02 {
+    display: none;
+  }
+}

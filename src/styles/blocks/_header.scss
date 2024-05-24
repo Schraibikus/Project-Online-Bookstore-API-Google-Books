@@ -64,3 +64,10 @@
     }
   }
 }
+
+@media (max-width: 700px) {
+  .header__menu-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

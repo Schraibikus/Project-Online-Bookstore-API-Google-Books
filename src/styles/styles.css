@@ -129,6 +129,11 @@ svg * {
   --button-width: 176px;
   --transition-duration: 0.3s;
 }
+@media (max-width: 1400px) {
+  :root {
+    --container-padding-x: 20px;
+  }
+}
 
 body {
   font-family: var(--font-family-base);
@@ -215,6 +220,12 @@ a {
   display: none;
 }
 
+@media (max-width: 700px) {
+  .header__menu-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 .banner {
   --banner-padding-top: 3px;
   position: relative;
@@ -235,6 +246,20 @@ a {
   right: -21px;
 }
 
+@media (max-width: 1300px) {
+  .banner .promo-01 {
+    right: -12px;
+  }
+}
+@media (max-width: 1200px) {
+  .banner {
+    padding-bottom: 30px;
+  }
+  .banner .promo-01,
+  .banner .promo-02 {
+    display: none;
+  }
+}
 .slider__images {
   position: relative;
   background-size: cover;
@@ -277,6 +302,29 @@ a {
   transition-duration: var(--transition-duration);
 }
 
+@media (max-width: 1200px) {
+  .slider__images {
+    height: 500px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 1000px) {
+  .slider__images {
+    height: 400px;
+    max-width: 600px;
+  }
+}
+@media (max-width: 700px) {
+  .slider__images {
+    height: 300px;
+    max-width: 400px;
+  }
+  .slider__dots-item {
+    width: 8px;
+    height: 8px;
+  }
+}
 .category {
   position: relative;
   z-index: 0;
@@ -316,6 +364,24 @@ a {
   top: 8px;
 }
 
+@media (max-width: 1400px) {
+  .category__menu-list {
+    padding: 0 0 0 20px;
+  }
+}
+@media (max-width: 1300px) {
+  .category__menu-list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px;
+  }
+}
+@media (max-width: 800px) {
+  .category__menu-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .books {
   position: relative;
   margin-top: 46px;
@@ -333,6 +399,20 @@ a {
   z-index: 1;
 }
 
+@media (max-width: 1300px) {
+  .books {
+    padding: 0;
+  }
+}
+@media (max-width: 1000px) {
+  .books__list {
+    grid-template-columns: repeat(1, 424px);
+    -moz-column-gap: 0;
+         column-gap: 0;
+    row-gap: 20px;
+    justify-content: center;
+  }
+}
 .book__card {
   display: flex;
   max-width: 424px;

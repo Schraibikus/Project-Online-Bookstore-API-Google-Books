@@ -14,3 +14,18 @@
     z-index: 1;
   }
 }
+
+@media (max-width: 1300px) {
+  .books {
+    padding: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .books__list {
+    grid-template-columns: repeat(1, 424px);
+    column-gap: 0;
+    row-gap: 20px;
+    justify-content: center;
+  }
+}

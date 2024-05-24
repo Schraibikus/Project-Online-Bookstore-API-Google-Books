@@ -47,3 +47,29 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .slider__images {
+    height: 500px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .slider__images {
+    height: 400px;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 700px) {
+  .slider__images {
+    height: 300px;
+    max-width: 400px;
+  }
+  .slider__dots-item {
+    width: 8px;
+    height: 8px;
+  }
+}

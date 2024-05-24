@@ -41,3 +41,24 @@
     top: 8px;
   }
 }
+
+@media (max-width: 1400px) {
+  .category__menu-list {
+    padding: 0 0 0 20px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .category__menu-list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px;
+  }
+}
+
+@media (max-width: 800px) {
+  .category__menu-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
