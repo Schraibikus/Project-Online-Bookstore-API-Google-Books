@@ -1,0 +1,49 @@
+.slider {
+  &__images {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    width: var(--container-width);
+    height: 702px;
+    transition-duration: var(--transition-duration);
+
+    .image {
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .image.active {
+      opacity: 1;
+    }
+  }
+
+  &__dots {
+    margin-top: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+
+    &-item {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--color-grey-alt);
+      cursor: pointer;
+      transition-duration: var(--transition-duration);
+    }
+
+    &-item:hover,
+    &-item.active {
+      background-color: var(--color-dots-active);
+      transition-duration: var(--transition-duration);
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.buttonLoad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 96px;
+  padding-bottom: 74px;
+
+  .button-load {
+    width: 176px;
+    height: 45px;
+    background-color: transparent;
+    font-size: 8px;
+    font-weight: 900;
+    border: var(--border);
+    color: var(--color-blue);
+    cursor: pointer;
+  }
+}

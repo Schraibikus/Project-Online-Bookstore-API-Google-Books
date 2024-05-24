@@ -1,0 +1,83 @@
+.book__card {
+  img {
+    box-shadow: var(--shadow);
+  }
+
+  display: flex;
+  max-width: 424px;
+
+  &-desciption {
+    padding: 49px 0 48px 36px;
+  }
+
+  &-author {
+    font-size: 10px;
+    font-family: var(--font-family-alt);
+    margin-bottom: 2px;
+  }
+
+  &-title {
+    font-size: 16px;
+    color: var(--color-dark);
+    font-weight: 900;
+    margin-bottom: 4px;
+  }
+
+  &-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 6px;
+  }
+
+  &-stars {
+    display: flex;
+    gap: 1px;
+  }
+
+  .review-text {
+    font-size: 10px;
+    font-family: var(--font-family-alt);
+  }
+
+  &-text {
+    text-transform: capitalize;
+    font-size: 10px;
+    font-family: var(--font-family-alt);
+    margin-bottom: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
+  &-price {
+    font-size: 13px;
+    color: var(--color-dark);
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+
+  .button {
+    width: 176px;
+    height: 45px;
+    border: var(--border-alt);
+    background-color: transparent;
+    color: var(--color-grey);
+    font-size: 8px;
+    font-weight: 900;
+  }
+
+  .button--active {
+    border: var(--border);
+    color: var(--color-blue);
+    cursor: pointer;
+  }
+
+  .colorStar {
+    svg [fill] {
+      fill: #eeedf5;
+    }
+  }
+}

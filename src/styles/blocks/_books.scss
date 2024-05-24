@@ -1,0 +1,16 @@
+.books {
+  position: relative;
+  margin-top: 46px;
+  padding-left: 196px;
+  max-width: 1084px;
+  z-index: 1;
+
+  &__list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 424px);
+    column-gap: 76px;
+    row-gap: 96px;
+    z-index: 1;
+  }
+}

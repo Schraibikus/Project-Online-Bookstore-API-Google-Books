@@ -1,0 +1,22 @@
+.banner {
+  --banner-padding-top: 3px;
+  position: relative;
+  padding-top: var(--banner-padding-top);
+  padding-bottom: 105px;
+
+  .promo-01,
+  .promo-02 {
+    position: absolute;
+    z-index: 5;
+  }
+
+  .promo-01 {
+    top: calc(82px + var(--banner-padding-top));
+    right: 74px;
+  }
+
+  .promo-02 {
+    top: calc(362px + var(--banner-padding-top));
+    right: -21px;
+  }
+}
