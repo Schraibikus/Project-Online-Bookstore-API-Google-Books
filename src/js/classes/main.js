@@ -6,6 +6,7 @@ class Main {
   key = "AIzaSyDDOMidehv5Pbxvwys6YMfRx700GHYlpkk";
   apiURL = "https://www.googleapis.com/books/v1/volumes";
   booksItems = JSON.parse(localStorage.getItem("booksItems")) || [];
+  bookInBag = JSON.parse(localStorage.getItem("bookInBag")) || [];
   categoryArr = [
     "Architecture",
     "Art",
@@ -357,6 +358,16 @@ class Main {
       this.buttonsActive.forEach((button) => {
         button.addEventListener("click", (event) => {
           if (event.target) {
+            let targetBook = event.target;
+            console.log(targetBook.parentElement.children);
+            const descBookInBag = {
+              author: targetBook.parentElement.children[0].textContent,
+              title: targetBook.parentElement.children[1].textContent,
+              text: targetBook.parentElement.children[3].textContent,
+              price: targetBook.parentElement.children[4].textContent,
+            };
+            this.bookInBag.push(descBookInBag);
+            localStorage.setItem("bookInBag", JSON.stringify(this.bookInBag));
             count++;
             if (count > 1) {
               count = 1;
