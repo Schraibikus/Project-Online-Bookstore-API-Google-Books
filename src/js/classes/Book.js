@@ -2,7 +2,7 @@ import { Header } from "./Header.js";
 import { Banner } from "./Banner.js";
 import { Slider } from "./Slider.js";
 
-class Main {
+class Book {
   key = "AIzaSyDDOMidehv5Pbxvwys6YMfRx700GHYlpkk";
   apiURL = "https://www.googleapis.com/books/v1/volumes";
   booksItems = JSON.parse(localStorage.getItem("booksItems")) || [];
@@ -405,4 +405,4 @@ class Main {
   }
 }
 
-export { Main };
+export { Book };

@@ -1,6 +1,5 @@
 class Header {
   constructor() {
-    this.header = document.querySelector(".header");
     this.icons = [
       {
         url: "./src/images/icons/user_icon.svg",
@@ -24,13 +23,15 @@ class Header {
   }
 
   setHeaderLogo() {
+    this.header = document.querySelector(".header");
     this.headerLogo = document.createElement("p");
     this.headerLogo.innerText = "Bookshop";
     this.headerLogo.className = "header__logo";
-    this.header.insertAdjacentElement("afterbegin", this.headerLogo);
+    this.header.append(this.headerLogo);
   }
 
   setHeaderMenu() {
+    this.header = document.querySelector(".header");
     this.headerMenu = document.createElement("nav");
     this.headerMenu.className = "header__menu";
     this.headerMenu.innerHTML = `
@@ -50,10 +51,11 @@ class Header {
 				</li>
 			</ul>
 		`;
-    this.header.insertAdjacentElement("beforeend", this.headerMenu);
+    this.header.append(this.headerMenu);
   }
 
   setUserActions() {
+    this.header = document.querySelector(".header");
     this.userActions = document.createElement("ul");
     this.userActions.className = "user-actions";
     this.userActions.innerHTML = `
@@ -89,7 +91,7 @@ class Header {
     this.bagItemCount = document.createElement("span");
     this.bagItemCount.className = "bag-full bag-empty";
     this.bagItem.append(this.bagItemCount);
-    this.header.insertAdjacentElement("beforeend", this.userActions);
+    this.header.append(this.userActions);
   }
 }
 

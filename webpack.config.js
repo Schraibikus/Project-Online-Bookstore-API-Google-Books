@@ -5,13 +5,20 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "./index.js"),
+  entry: path.resolve(__dirname, "./main.js"),
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "./dist"),
     filename: "main.js",
   },
-  mode: "production",
-  plugins: [new MiniCssExtractPlugin(), new HtmlWebpackPlugin()],
+  mode: "development",
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      entry: path.resolve(__dirname, "./index.html"),
+      output: path.resolve(__dirname, "./dist"),
+      filename: "index.html",
+    }),
+  ],
   module: {
     rules: [
       {
