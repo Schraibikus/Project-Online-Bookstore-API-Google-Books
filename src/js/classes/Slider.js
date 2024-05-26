@@ -1,14 +1,18 @@
+import slide1 from "../../images/img_slide_01.jpg";
+import slide2 from "../../images/img_slide_02.jpg";
+import slide3 from "../../images/img_slide_03.jpg";
+
 class Slider {
   constructor() {
     this.images = [
       {
-        url: "./src/images/slide_01.jpg",
+        url: slide1,
       },
       {
-        url: "./src/images/slide_02.jpg",
+        url: slide2,
       },
       {
-        url: "./src/images/slide_03.jpg",
+        url: slide3,
       },
     ];
     this.sliderOptions = {
@@ -37,8 +41,9 @@ class Slider {
       this.sliderDots.innerHTML += this.dot;
     });
     this.sliderDots.querySelectorAll(".slider__dots-item").forEach((dot) => {
-      dot.addEventListener("click", function () {
-        this.moveSlider(this.dataset.index);
+      dot.addEventListener("click", function (e) {
+        let num = e.target.dataset.index;
+        this.moveSlider(num);
       });
     });
   }
@@ -54,11 +59,12 @@ class Slider {
 
   initAutoplay() {
     setInterval(() => {
-      let curNumber = Number(
+      this.curNumber = Number(
         this.sliderImages.querySelector(".active").dataset.index
       );
-      let nextNumber = curNumber === this.images.length - 1 ? 0 : curNumber + 1;
-      this.moveSlider(nextNumber);
+      this.nextNumber =
+        this.curNumber === this.images.length - 1 ? 0 : this.curNumber + 1;
+      this.moveSlider(this.nextNumber);
     }, this.sliderOptions.autoplayInterval);
   }
 

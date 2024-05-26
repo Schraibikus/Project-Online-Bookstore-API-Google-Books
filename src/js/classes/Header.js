@@ -1,29 +1,32 @@
+import person_icon from "../../images/icons/user_icon.svg";
+import search_icon from "../../images/icons/search_icon.svg";
+import bag_icon from "../../images/icons/bag_icon.svg";
 class Header {
   constructor() {
     this.icons = [
       {
-        url: "./src/images/icons/user_icon.svg",
+        url: person_icon,
         alt: "person_icon",
         width: 12,
         height: 15,
       },
       {
-        url: "./src/images/icons/search_icon.svg",
+        url: search_icon,
         alt: "search_icon",
         width: 15,
         height: 15,
       },
       {
-        url: "./src/images/icons/bag_icon.svg",
+        url: bag_icon,
         alt: "bag_icon",
         width: 14,
         height: 17,
       },
     ];
+    this.header = document.querySelector(".header");
   }
 
   setHeaderLogo() {
-    this.header = document.querySelector(".header");
     this.headerLogo = document.createElement("p");
     this.headerLogo.innerText = "Bookshop";
     this.headerLogo.className = "header__logo";
@@ -31,7 +34,6 @@ class Header {
   }
 
   setHeaderMenu() {
-    this.header = document.querySelector(".header");
     this.headerMenu = document.createElement("nav");
     this.headerMenu.className = "header__menu";
     this.headerMenu.innerHTML = `
@@ -55,7 +57,6 @@ class Header {
   }
 
   setUserActions() {
-    this.header = document.querySelector(".header");
     this.userActions = document.createElement("ul");
     this.userActions.className = "user-actions";
     this.userActions.innerHTML = `

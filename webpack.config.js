@@ -7,16 +7,22 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 module.exports = {
   entry: path.resolve(__dirname, "./main.js"),
   output: {
-    path: path.resolve(__dirname, "./dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "main.js",
   },
   mode: "development",
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
+    port: 3001,
+    hot: true,
+  },
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      entry: path.resolve(__dirname, "./index.html"),
-      output: path.resolve(__dirname, "./dist"),
-      filename: "index.html",
+      template: "./index.html",
+      filename: "main.html",
     }),
   ],
   module: {
@@ -26,8 +32,29 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /\.(jpe?g|png)$/i,
+        test: /\.(png|jpg|jpeg|svg)?$/,
         type: "asset",
+      },
+      {
+        test: /\.png?$/,
+        type: "asset",
+        generator: {
+          filename: path.join("images/png/", "[name][ext]"),
+        },
+      },
+      {
+        test: /\.svg?$/,
+        type: "asset",
+        generator: {
+          filename: path.join("images/svg/", "[name][ext]"),
+        },
+      },
+      {
+        test: /\.woff2?$/,
+        type: "asset",
+        generator: {
+          filename: path.join("fonts/", "[name][ext]"),
+        },
       },
     ],
   },
@@ -35,6 +62,7 @@ module.exports = {
     minimizer: [
       `...`,
       new CssMinimizerPlugin(),
+      "...",
       new ImageMinimizerPlugin({
         minimizer: {
           implementation: ImageMinimizerPlugin.imageminMinify,
@@ -42,6 +70,28 @@ module.exports = {
             plugins: [
               ["jpegtran", { progressive: true }],
               ["optipng", { optimizationLevel: 5 }],
+              [
+                "svgo",
+                {
+                  plugins: [
+                    {
+                      name: "preset-default",
+                      params: {
+                        overrides: {
+                          removeViewBox: false,
+                          addAttributesToSVGElement: {
+                            params: {
+                              attributes: [
+                                { xmlns: "http://www.w3.org/2000/svg" },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    },
+                  ],
+                },
+              ],
             ],
           },
         },

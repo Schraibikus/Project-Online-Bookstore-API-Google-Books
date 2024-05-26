@@ -148,6 +148,7 @@ class Book {
             review: this.getRandom(1, 10000),
           };
           this.booksItems.push(booksItemsObj);
+          if (this.booksItems.length > 18) this.booksItems.pop();
           localStorage.setItem("booksItems", JSON.stringify(this.booksItems));
         });
       });
@@ -359,7 +360,6 @@ class Book {
         button.addEventListener("click", (event) => {
           if (event.target) {
             let targetBook = event.target;
-            console.log(targetBook.parentElement.children);
             const descBookInBag = {
               author: targetBook.parentElement.children[0].textContent,
               title: targetBook.parentElement.children[1].textContent,
