@@ -357,25 +357,26 @@ class Book {
     if (this.buttonsActive) {
       let count = 0;
       this.buttonsActive.forEach((button) => {
-        button.addEventListener("click", (event) => {
-          if (event.target) {
-            let targetBook = event.target;
-            const descBookInBag = {
-              author: targetBook.parentElement.children[0].textContent,
-              title: targetBook.parentElement.children[1].textContent,
-              text: targetBook.parentElement.children[3].textContent,
-              price: targetBook.parentElement.children[4].textContent,
-            };
-            this.bookInBag.push(descBookInBag);
-            localStorage.setItem("bookInBag", JSON.stringify(this.bookInBag));
-            count++;
-            if (count > 1) {
-              count = 1;
+        button.addEventListener(
+          "click",
+          (event) => {
+            if (event.target) {
+              let targetBook = event.target;
+              const descBookInBag = {
+                author: targetBook.parentElement.children[0].textContent,
+                title: targetBook.parentElement.children[1].textContent,
+                text: targetBook.parentElement.children[3].textContent,
+                price: targetBook.parentElement.children[4].textContent,
+              };
+              this.bookInBag.push(descBookInBag);
+              localStorage.setItem("bookInBag", JSON.stringify(this.bookInBag));
+              count++;
             }
-          }
-          this.header.bagItemCount.classList.toggle("bag-empty");
-          this.header.bagItemCount.textContent = count;
-        });
+            this.header.bagItemCount.classList.remove("bag-empty");
+            this.header.bagItemCount.textContent = count;
+          },
+          { once: true }
+        );
       });
     }
   }
