@@ -347,7 +347,6 @@ class Book {
         this.buttonCard.innerText = `in the cart`;
       }
       this.bookDesc.append(this.buttonCard);
-
       this.booksList.append(this.bookItem);
     }
   }
@@ -355,28 +354,26 @@ class Book {
   getBagFull() {
     this.buttonsActive = document.querySelectorAll(".button--active");
     if (this.buttonsActive) {
-      let count = 0;
       this.buttonsActive.forEach((button) => {
-        button.addEventListener(
-          "click",
-          (event) => {
-            if (event.target) {
-              let targetBook = event.target;
-              const descBookInBag = {
-                author: targetBook.parentElement.children[0].textContent,
-                title: targetBook.parentElement.children[1].textContent,
-                text: targetBook.parentElement.children[3].textContent,
-                price: targetBook.parentElement.children[4].textContent,
-              };
-              this.bookInBag.push(descBookInBag);
-              localStorage.setItem("bookInBag", JSON.stringify(this.bookInBag));
-              count++;
-            }
-            this.header.bagItemCount.classList.remove("bag-empty");
-            this.header.bagItemCount.textContent = count;
-          },
-          { once: true }
-        );
+        button.addEventListener("click", (event) => {
+          if (event.target) {
+            let targetBook = event.target;
+            const descBookInBag = {
+              author: targetBook.parentElement.children[0].textContent,
+              title: targetBook.parentElement.children[1].textContent,
+              text: targetBook.parentElement.children[3].textContent,
+              price: targetBook.parentElement.children[4].textContent,
+              idx: this.bookInBag.length + 1,
+            };
+            this.bookInBag.push(descBookInBag);
+            localStorage.setItem("bookInBag", JSON.stringify(this.bookInBag));
+            targetBook.textContent = "in bag";
+            targetBook.setAttribute("data-idx", this.bookInBag.length);
+            // console.log(this.bookInBag);
+          }
+          this.header.bagItemCount.classList.remove("bag-empty");
+          this.header.bagItemCount.textContent = this.bookInBag.length;
+        });
       });
     }
   }
